@@ -27,7 +27,7 @@ public class PermissionController {
 	private PermissionService permissionService;
 		
 	/**
-	 * Get all permissions or permission with a given name.
+	 * Get all permissions or permission by name.
 	 * 
 	 * @param permissionName
 	 * @return Collection of permissions or permission with the given name
@@ -50,7 +50,7 @@ public class PermissionController {
 	}
 	
 	/**
-	 * Get permission with a given id.
+	 * Get permission by id.
 	 * 
 	 * @param permissionId
 	 * @return Permission object or 404 if permission is not found

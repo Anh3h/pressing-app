@@ -27,7 +27,7 @@ public class CleaningMaterialController {
 	private CleaningMaterialService cleaningMaterialService;
 	
 	/**
-	 * Get all cleaning materials or cleaning material with a given name.
+	 * Get all cleaning materials or cleaning material by name.
 	 * 
 	 * @param materialName
 	 * @return Collection of cleaning materials or material with the given name
@@ -50,7 +50,7 @@ public class CleaningMaterialController {
 	}
 	
 	/**
-	 * Get cleaning material with given material id.
+	 * Get cleaning material by material id.
 	 * 
 	 * @param materialId
 	 * @return CleaningMaterial object or 404 if material is not found

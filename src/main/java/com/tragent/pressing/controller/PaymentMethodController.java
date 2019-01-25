@@ -31,7 +31,7 @@ public class PaymentMethodController {
 	private PaymentService paymentService;
 	
 	/**
-	 * Get all payment method or payment method with a given name.
+	 * Get all payment method or payment method by name.
 	 * 
 	 * @param methodName, isActive
 	 * @return Collection of payment methods or payment method with the given name
@@ -64,7 +64,7 @@ public class PaymentMethodController {
 	}
 	
 	/**
-	 * Get payment method with a given id.
+	 * Get payment method by id.
 	 * 
 	 * @param methodId
 	 * @return PaymentMethod with the given id or 404 if payment method is not found

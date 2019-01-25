@@ -57,7 +57,7 @@ public class MaterialPurchaseController {
 	}
 	
 	/**
-	 * Get expenditure with a given id.
+	 * Get expenditure by id.
 	 * 
 	 * @param purchaseId
 	 * @return MaterialPurchase object or 404 if expenditure (MaterialPurchase object) is not found

@@ -27,7 +27,7 @@ public class ItemController {
 	private ItemService itemService;
 	
 	/**
-	 * Get all items or item with a given name.
+	 * Get all items or item by name.
 	 * 
 	 * @param itemName
 	 * @return Collection of items or item with the given name
@@ -50,7 +50,7 @@ public class ItemController {
 	}
 	
 	/**
-	 * Get Item with given item id.
+	 * Get Item by item id.
 	 * 
 	 * @param itemId
 	 * @return Item object or 404 if item is not found

@@ -43,7 +43,7 @@ public class CustomerTransactionController {
 	private PaymentMethodService paymentMethodService;
 		
 	/**
-	 * Get all transactions or a customer or item transaction with a given id.
+	 * Get all transactions or a customer or item transaction by id.
 	 * 
 	 * @param depositDate, dueDate, customerId, itemId
 	 * @return Collection of transactions or a customer's transactions with the given id.
@@ -110,7 +110,7 @@ public class CustomerTransactionController {
 	}
 	
 	/**
-	 * Get transaction with given transaction id.
+	 * Get transaction by transaction id.
 	 * 
 	 * @param transactionId
 	 * @return Transaction object or 404 if transaction is not found
@@ -129,7 +129,7 @@ public class CustomerTransactionController {
 	}
 	
 	/**
-	 * Get payments made on transaction with given id.
+	 * Get payments made on transaction by id.
 	 * 
 	 * @param transactionId
 	 * @return collection of payments for a transaction or 404 if transactions is not found

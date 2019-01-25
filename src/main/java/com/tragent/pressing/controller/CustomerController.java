@@ -27,10 +27,10 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	/**
-	 * Get all customers or collection of active customer or customer with a given email.
+	 * Get all customers or collection of active customer or customer by email.
 	 * 
 	 * @param customerEmail, isActive
-	 * @return Collection of customers or customer with the particular email
+	 * @return Collection of customers or customer with the given email
 	 */
 	@RequestMapping(method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,7 +61,7 @@ public class CustomerController {
 	}
 	
 	/**
-	 * Get customer with given customer id.
+	 * Get customer by customer id.
 	 * 
 	 * @param customerId
 	 * @return Customer object or 404 if customer is not found

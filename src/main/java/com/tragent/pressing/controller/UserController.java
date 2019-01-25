@@ -34,7 +34,7 @@ public class UserController {
 	private RoleService roleService;
 	
 	/**
-	 * Get all uses or user with a given username.
+	 * Get all uses or user by username.
 	 * 
 	 * @param username, isActive
 	 * @return Collection of users or user with the given username
@@ -69,7 +69,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Get user with given user id.
+	 * Get user by user id.
 	 * 
 	 * @param userId
 	 * @return User object or 404 if user is not found
@@ -115,7 +115,7 @@ public class UserController {
 	/**
 	 * Update user's information.
 	 * 
-	 * @param userId
+	 * @param user
 	 * @return User object (updated user object)
 	 */
 	@RequestMapping(value="/{userId}",

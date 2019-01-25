@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pressing-app.iml" filepath="$PROJECT_DIR$/pressing-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pressing-app_main.iml" filepath="$PROJECT_DIR$/.idea/modules/pressing-app_main.iml" group="pressing-app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pressing-app_test.iml" filepath="$PROJECT_DIR$/.idea/modules/pressing-app_test.iml" group="pressing-app" />
+    </modules>
+  </component>
+</project>

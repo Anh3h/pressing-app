@@ -34,7 +34,7 @@ public class RoleController {
 	private PermissionService permissionService;
 		
 	/**
-	 * Get all roles or role with a given name.
+	 * Get all roles or role by name.
 	 * 
 	 * @param roleName
 	 * @return Collection of roles in the system or role with the given name
@@ -57,7 +57,7 @@ public class RoleController {
 	}
 	
 	/**
-	 * Get role with a given id.
+	 * Get role by id.
 	 * 
 	 * @param roleId
 	 * @return Role object or 404 if role is not found
@@ -97,7 +97,7 @@ public class RoleController {
 	/**
 	 * Create new role.
 	 * 
-	 * @param newRole
+	 * @param role
 	 * @return Role Object (created role object)
 	 */
 	@RequestMapping(method=RequestMethod.POST,
