@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97fad5ed-e157-4a9e-8446-d08e58a0a28f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CleaningMaterialController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CleaningMaterialController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CustomerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CustomerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CustomerTransactionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/CustomerTransactionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/ItemController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/ItemController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/MaterialPurchaseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/MaterialPurchaseController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PaymentMethodController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PaymentMethodController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PermissionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PermissionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/RoleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/RoleController.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___pressing_management_0_0_1_SNAPSHOT_war__exploded_.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___pressing_management_0_0_1_SNAPSHOT_war__exploded_.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/pressing-app_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/pressing-app_main.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/pressing-app_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/pressing-app_test.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/controller/UserController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/model/UserDTO.class" afterPath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/model/UserDTO.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/repository/UserRepository.class" afterPath="$PROJECT_DIR$/out/production/classes/com/tragent/pressing/repository/UserRepository.class" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/UserDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/UserDTO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/tragent/pressing/repository/UserRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/controller/UserControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/controller/UserControllerTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/Generator.java" afterPath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/Generator.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/RoleGenerator.java" afterPath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/RoleGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/UserGenerator.java" afterPath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/UserGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/service/UserServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/tragent/pressing/service/UserServiceTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -23,13 +29,90 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pressing-app" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pressing-app" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pressing-app" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pressing-app" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="UserControllerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/controller/UserControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2067">
+              <caret line="142" column="77" lean-forward="false" selection-start-line="142" selection-start-column="77" selection-end-line="142" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="126" column="47" lean-forward="false" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -302,8 +385,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3096807326000" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1253548230" />
+        <entry key="$PROJECT_DIR$" value="3096837563000" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="1365529259" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1843517153" />
       </map>
     </option>
@@ -418,7 +501,7 @@
         <entry key="$USER_HOME$/fineract-cn-code/fineract-cn-anubis" value="PREVIEW" />
         <entry key="$USER_HOME$/fineract/fineract-provider" value="PREVIEW" />
         <entry key="$USER_HOME$/library" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$" value="IMPORT" />
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
         <entry key="$USER_HOME$/shop" value="PREVIEW" />
         <entry key="$USER_HOME$/user-ms" value="PREVIEW" />
         <entry key="$USER_HOME$/wtm-website" value="PREVIEW" />
@@ -437,6 +520,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PaymentMethodController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/PermissionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/RoleController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/Generator/Generator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/Generator.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/service/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/RoleGenerator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/UserGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/UserDTO.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/tragent/pressing/controller/UserControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java" />
       </list>
     </option>
@@ -502,6 +594,54 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pressing" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pressing" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pressing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pressing" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pressing-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pressing-app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pressing" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -536,7 +676,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.UserControllerTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -557,20 +697,120 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="ApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.tragent.pressing.*" />
+          <option name="PATTERN" value="com.tragent.pressing.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="pressing-app_test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.tragent.pressing" />
-      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.ApplicationTests" />
+      <option name="PACKAGE_NAME" value="com.tragent.pressing.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.controller.UserControllerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.tragent.pressing.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="pressing-app_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.tragent.pressing.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.tragent.pressing.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="pressing-app_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.tragent.pressing.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserControllerTest.whenAUserCreateRequestIsSent_ACreatedUserIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.tragent.pressing.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="pressing-app_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.tragent.pressing.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="whenAUserCreateRequestIsSent_ACreatedUserIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.tragent.pressing.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="pressing-app_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.tragent.pressing.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.tragent.pressing.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -648,13 +888,21 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="2">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationTests" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UserControllerTest.whenAUserCreateRequestIsSent_ACreatedUserIsReturned" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserControllerTest" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ApplicationTests" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserControllerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UserControllerTest.whenAUserCreateRequestIsSent_ACreatedUserIsReturned" />
       </list>
     </recent_temporary>
   </component>
@@ -671,48 +919,75 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1548407357833</updated>
-      <workItem from="1548407359403" duration="3428000" />
+      <workItem from="1548407359403" duration="23644000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationTests - 2019.01.25 at 04h 12m 29s.xml">
-      <configuration name="ApplicationTests" configurationId="JUnit" />
+    <history-entry file="UserControllerTest - 2019.01.25 at 19h 07m 13s.xml">
+      <configuration name="UserControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest - 2019.01.25 at 19h 08m 43s.xml">
+      <configuration name="UserControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_WhenANonExistingUserIsUpdated_HttpStatus404IsReturned - 2019.01.25 at 19h 01m 19s.xml">
+      <configuration name="UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_WhenANonExistingUserIsUpdated_HttpStatus404IsReturned - 2019.01.25 at 19h 02m 08s.xml">
+      <configuration name="UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatus404IsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned - 2019.01.25 at 19h 06m 14s.xml">
+      <configuration name="UserControllerTest.WhenANonExistingUserIsUpdated_HttpStatusBadRequestIsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_whenAUserCreateRequestIsSent_ACreatedUserIsReturned - 2019.01.25 at 18h 50m 58s.xml">
+      <configuration name="UserControllerTest.whenAUserCreateRequestIsSent_ACreatedUserIsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned - 2019.01.25 at 18h 51m 13s.xml">
+      <configuration name="UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned - 2019.01.25 at 18h 53m 37s.xml">
+      <configuration name="UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned - 2019.01.25 at 19h 07m 39s.xml">
+      <configuration name="UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserControllerTest_whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned - 2019.01.25 at 19h 08m 29s.xml">
+      <configuration name="UserControllerTest.whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3428000" />
+    <option name="totallyTimeSpent" value="23644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63919127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35147744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31439394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5598756" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -723,8 +998,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="9" />
+    </breakpoint-manager>
     <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -826,14 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="117" column="18" lean-forward="true" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/AuthenticationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -847,6 +1120,109 @@
         <state relative-caret-position="90">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="37" column="49" lean-forward="false" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/service/implementation/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="57" column="26" lean-forward="false" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/service/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="70" column="55" lean-forward="false" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+          <folding>
+            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/RoleGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/CustomUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/model/UserDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/generator/UserGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tragent/pressing/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="126" column="47" lean-forward="false" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/tragent/pressing/controller/UserControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2067">
+          <caret line="142" column="77" lean-forward="false" selection-start-line="142" selection-start-column="77" selection-end-line="142" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

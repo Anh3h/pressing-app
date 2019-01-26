@@ -35,6 +35,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-aop')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.apache.commons:commons-lang3:3.0')
 	compile('net.sf.ehcache:ehcache-core:2.6.9') {
         exclude group: 'commons-logging'
     }

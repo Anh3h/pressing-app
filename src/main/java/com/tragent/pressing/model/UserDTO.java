@@ -23,6 +23,7 @@ public class UserDTO {
 		this.lastName = lastName;
 		this.username = username;
 		this.isActive = isActive;
+		this.roleIds = new ArrayList<>();
 		this.roleIds.add(roleId);
 		this.telephone = telephone;
 		

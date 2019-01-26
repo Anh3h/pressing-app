@@ -104,9 +104,9 @@ public class UserController {
 		}
 		CustomUser newUser = new CustomUser(user.getFirstName(),user.getLastName(),user.getUsername(),
 				user.getPassword(), user.isActive(), roles, user.getTelephone());
-		newUser = userService.create(newUser);
-		if (newUser == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		CustomUser createdUser = userService.create(newUser);
+		if (createdUser == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
@@ -122,25 +122,31 @@ public class UserController {
 			method=RequestMethod.PUT,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomUser> updateUser(@RequestBody UserDTO user){
-		int count = 0;
-		List<Role> roles = new ArrayList<>();
-		while(user.getRoleIds().size() > count){
-			roles.add(roleService.findById(user.getRoleIds().get(count++)));
+	public ResponseEntity<CustomUser> updateUser(@RequestBody UserDTO user,
+			@PathVariable("userId") Long userId){
+		if (user.getId().compareTo(userId) == 0) {
+			int count = 0;
+			List<Role> roles = new ArrayList<>();
+			while(user.getRoleIds().size() > count){
+				roles.add(roleService.findById(user.getRoleIds().get(count++)));
+			}
+			CustomUser updateUser = userService.findById(user.getId());
+
+			if (updateUser == null) {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+
+			updateUser.setFirstName(user.getFirstName());
+			updateUser.setLastName(user.getLastName());
+			updateUser.setPassword(user.getPassword());
+			updateUser.setTelephone(user.getTelephone());
+			updateUser.setActive(user.isActive());
+			updateUser.setRoles(roles);
+			updateUser = userService.update(updateUser);
+
+			return new ResponseEntity<>(updateUser, HttpStatus.OK);
 		}
-		CustomUser updateUser = userService.findById(user.getId());
-		updateUser.setFirstName(user.getFirstName());
-		updateUser.setLastName(user.getLastName());
-		updateUser.setPassword(user.getPassword());
-		updateUser.setTelephone(user.getTelephone());
-		updateUser.setActive(user.isActive());
-		updateUser.setRoles(roles);
-		updateUser = userService.update(updateUser);
-		
-		if (updateUser == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(updateUser, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	/**
