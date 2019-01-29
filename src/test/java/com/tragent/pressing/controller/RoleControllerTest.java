@@ -137,8 +137,19 @@ public class RoleControllerTest {
 		Role role = RoleGenerator.generateRole();
 		given(this.roleService.findByName(role.getName())).willReturn(role);
 
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles?name=" + role.getName()))
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles?roleName=" + role.getName()))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$[0].name", is(role.getName())));
+	}
+
+	@Test
+	public void whenGetRolePermissionsIsMade_ACollectionOfAllPermissionsForThatRoleIsReturned() throws Exception {
+		Role role = RoleGenerator.generateRole();
+		given(this.roleService.findById(role.getId())).willReturn(role);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles/" + role.getId() + "/permissions"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$[0].name", is(role.getPermission().get(0).getName())));
 	}
 }
