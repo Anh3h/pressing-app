@@ -44,7 +44,6 @@ public class UserServiceTest {
 	@Test
 	public void createUser_shouldReturnNewlyCreatedUser() {
 		CustomUser user = UserGenerator.generateUser();
-
 		given( this.userRepository.save(user) ).willReturn(user);
 		given(  this.userRepository.findByUsername(user.getUsername()) ).willReturn(null);
 		given( this.passwordEncoder.encode(user.getPassword()) ).willReturn(user.getPassword());
@@ -57,7 +56,6 @@ public class UserServiceTest {
 	@Test
 	public void updateUser_shouldReturAnUpdateUser() {
 		CustomUser user = UserGenerator.generateUser();
-
 		given( this.userRepository.save(user) ).willReturn(user);
 		given( this.passwordEncoder.encode(user.getPassword()) ).willReturn(user.getPassword());
 
@@ -69,7 +67,6 @@ public class UserServiceTest {
 	@Test
 	public void getUserById_ShouldReturnAUserAccountIfAvailable() {
 		CustomUser user = UserGenerator.generateUser();
-
 		given( this.userRepository.findOne(user.getId()) ).willReturn(user);
 
 		CustomUser gottenUser = this.userService.findById(user.getId());
@@ -80,7 +77,6 @@ public class UserServiceTest {
 	@Test
 	public void getUserByUsername_ShouldReturnAAUserAccountIfAvailable() {
 		CustomUser user = UserGenerator.generateUser();
-
 		given( this.userRepository.findByUsername(user.getUsername()) ).willReturn(user);
 
 		CustomUser gottenUser = this.userService.findByUserName(user.getUsername());
@@ -93,7 +89,6 @@ public class UserServiceTest {
 		List<CustomUser> users = new ArrayList<>();
 		users.add(UserGenerator.generateUser());
 		users.add(UserGenerator.generateUser());
-
 		given( this.userRepository.findByIsActive(true) ).willReturn(users);
 
 		Collection<CustomUser> activeUsers = this.userService.findByIsActive(true);
@@ -108,7 +103,6 @@ public class UserServiceTest {
 		tempUser.setActive(false);
 		users.add(tempUser);
 		users.add(UserGenerator.generateUser());
-
 		given( this.userRepository.findAll() ).willReturn(users);
 
 		Collection<CustomUser> gottenUsers = this.userService.findAll();
