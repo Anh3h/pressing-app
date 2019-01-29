@@ -42,7 +42,7 @@ public class RoleControllerTest {
 		Role role = RoleGenerator.generateRole();
 		List<Long> permissionIds = new ArrayList<>();
 		permissionIds.add(role.getPermission().get(0).getId());
-		RoleDTO roleDTO = new RoleDTO(role.getId(), role.getName(), role.getDescription(), null);
+		RoleDTO roleDTO = new RoleDTO(role.getId(), role.getName(), role.getDescription(), permissionIds);
 
 		given(this.roleService.create(any(Role.class))).willReturn(role);
 
