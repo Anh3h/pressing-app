@@ -65,7 +65,7 @@ public class RoleController {
 	@RequestMapping(value="/{roleId}",
 			method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Role> getPaymentMethodById(@PathVariable("roleId") Long roleId){
+	public ResponseEntity<Role> getRoleById(@PathVariable("roleId") Long roleId){
 		
 		Role role = roleService.findById(roleId);
 		if (role == null) {
@@ -106,7 +106,7 @@ public class RoleController {
 	public ResponseEntity<Role> createRole(@RequestBody RoleDTO role){
 		int count=0;
 		List<Permission> permissions = new ArrayList<>();
-		while(role.getPermissionIds().size() > count){
+		while(role.getPermissionIds() != null && role.getPermissionIds().size() > count){
 			permissions.add(permissionService.findById(role.getPermissionIds().get(count++)));
 		}
 		Role newRole = new Role(role.getName(), role.getDescription(), permissions);
@@ -131,18 +131,19 @@ public class RoleController {
 	public ResponseEntity<Role> updateRole(@RequestBody RoleDTO role){
 		int count=0;
 		List<Permission> permissions = new ArrayList<>();
-		while(role.getPermissionIds().size() > count){
+		while(role.getPermissionIds() != null && role.getPermissionIds().size() > count){
 			permissions.add(permissionService.findById(role.getPermissionIds().get(count++)));
 		}
+
 		Role newRole = roleService.findById(role.getId());
+		if (newRole == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
 		newRole.setDescription(role.getDescription());
 		newRole.setPermission(permissions);
 		newRole = roleService.create(newRole);
 		newRole = roleService.update(newRole);
-		
-		if (newRole == null) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
 		
 		return new ResponseEntity<>(newRole, HttpStatus.OK);	
 	}

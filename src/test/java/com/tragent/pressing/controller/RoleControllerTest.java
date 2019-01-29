@@ -1,5 +1,7 @@
 package com.tragent.pressing.controller;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -54,4 +56,89 @@ public class RoleControllerTest {
 			.andExpect(jsonPath("name").value(role.getName()));
 	}
 
+	@Test
+	public void whenCreateRoleRequestIsMadeWithNoPermission_ANewlyCreatedRoleIsReturned() throws Exception {
+		Role role = RoleGenerator.generateRole();
+		RoleDTO roleDTO = new RoleDTO(role.getId(), role.getName(), role.getDescription(), null);
+
+		given(this.roleService.create(any(Role.class))).willReturn(role);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/roles")
+				.content(Generator.toJSON(role))
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+			.andExpect(status().isCreated())
+			.andExpect(jsonPath("name").value(role.getName()));
+	}
+
+	@Test
+	public void whenUpdateRoleRequestIsMade_AnUpdatedRoleIsReturned() throws Exception {
+		Role role = RoleGenerator.generateRole();
+		RoleDTO roleDTO = new RoleDTO(role.getId(), role.getName(), role.getDescription(), null);
+
+		given(this.roleService.update(any(Role.class))).willReturn(role);
+		given(this.roleService.findById(role.getId())).willReturn(role);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/roles/" + role.getId())
+				.content(Generator.toJSON(roleDTO))
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("name").value(role.getName()));
+	}
+
+	@Test
+	public void whenUpdateRoleRequestIsMadeOnANonExistingRole_HttpStatus404IsReturned() throws Exception {
+		Role role = RoleGenerator.generateRole();
+		RoleDTO roleDTO = new RoleDTO(role.getId(), role.getName(), role.getDescription(), null);
+
+		given(this.roleService.findById(role.getId())).willReturn(null);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/roles/" + role.getId())
+				.content(Generator.toJSON(roleDTO))
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+			.andExpect(status().isNotFound());
+	}
+
+	@Test
+	public void whenGetRoleByIdRequestIsMade_AnExistingRoleAndHttpStatusOkIsReturned() throws Exception {
+		Role role = RoleGenerator.generateRole();
+
+		given(this.roleService.findById(role.getId())).willReturn(role);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles/" + role.getId()))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("name").value(role.getName()));
+	}
+
+	@Test
+	public void whenGetRoleByIdRequestIsMadeonNonExistingRole_HttpStatus404IsReturned() throws Exception {
+		given(this.roleService.findById(1L)).willReturn(null);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles" + 1L))
+				.andExpect(status().isNotFound());
+	}
+
+	@Test
+	public void whenGetRolesRequestIsMade_AllRolesAndHttpStatusOkAreReturned() throws Exception {
+		List<Role> roles = new ArrayList<>();
+		roles.add(RoleGenerator.generateRole());
+		roles.add(RoleGenerator.generateRole());
+
+		given(this.roleService.findAll()).willReturn(roles);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles"))
+				.andExpect(jsonPath("$", hasSize(2)));
+	}
+
+	@Test
+	public void whenGetRoleByNameIsMade_ASingletonOfRoleIsReturnes() throws Exception {
+		Role role = RoleGenerator.generateRole();
+		given(this.roleService.findByName(role.getName())).willReturn(role);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/roles?name=" + role.getName()))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$[0].name", is(role.getName())));
+	}
 }
