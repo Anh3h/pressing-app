@@ -29,6 +29,12 @@ public class Permission {
 		super();
 	}
 
+	public Permission(Long id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

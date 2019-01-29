@@ -1,25 +1,26 @@
 package com.tragent.pressing.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoleDTO {
 	private Long id;
 	private String name;
 	private String description;
-	private ArrayList<Long> permissionIds;
+	private List<Long> permissionIds;
 	
 	public RoleDTO() {
 		super();
 	}
 
-	public RoleDTO(String name, String description, ArrayList<Long> permissionIds) {
+	public RoleDTO(String name, String description, List<Long> permissionIds) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.permissionIds = permissionIds;
 	}
 
-	public RoleDTO(Long id, String name, String description, ArrayList<Long> permissionIds) {
+	public RoleDTO(Long id, String name, String description, List<Long> permissionIds) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -51,7 +52,7 @@ public class RoleDTO {
 		this.description = description;
 	}
 
-	public ArrayList<Long> getPermissionIds() {
+	public List<Long> getPermissionIds() {
 		return this.permissionIds;
 	}
 
