@@ -71,15 +71,15 @@ public class PermissionController {
 	/**
 	 * Create new permission.
 	 * 
-	 * @param newPermission
+	 * @param permission
 	 * @return Permission object (created object)
 	 */
 	@RequestMapping(method=RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Permission> createPermission(@RequestBody Permission newPermission){
+	public ResponseEntity<Permission> createPermission(@RequestBody Permission permission){
 		
-		newPermission = permissionService.create(newPermission);
+		Permission newPermission = permissionService.create(permission);
 		if (newPermission == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -98,13 +98,12 @@ public class PermissionController {
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Permission> updatePermission(@RequestBody Permission permission){
-		
-		permission = permissionService.update(permission);
-		if (permission == null) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+		if (this.permissionService.findById(permission.getId()) != null) {
+			Permission updatedPermission = permissionService.update(permission);
+			return new ResponseEntity<>(permission, HttpStatus.OK);
 		}
-		
-		return new ResponseEntity<>(permission, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 }
