@@ -8,7 +8,7 @@ public class CustomerItem {
 	private Customer customer;
 	private Item item;
 	private int quantity;
-	private String status;
+	private Status status;
 	private String label;
 	private Date depositDate = new Date();
 	private Date dueDate;
@@ -17,7 +17,7 @@ public class CustomerItem {
 		super();
 	}
 
-	public CustomerItem(Customer customer, Item item, int quantity, String status, String label,
+	public CustomerItem(Customer customer, Item item, int quantity, Status status, String label,
 			Date depositDate, Date dueDate) {
 		super();
 		this.customer = customer;
@@ -29,7 +29,7 @@ public class CustomerItem {
 		this.dueDate = dueDate;
 	}
 	
-	public CustomerItem(Long id, Customer customer, Item item, int quantity, String status, String label,
+	public CustomerItem(Long id, Customer customer, Item item, int quantity, Status status, String label,
 			Date depositDate, Date dueDate) {
 		this(customer, item, quantity, status, label, depositDate, dueDate);
 		this.id = id;
@@ -67,11 +67,11 @@ public class CustomerItem {
 		this.quantity = quantity;
 	}
 	
-	public String getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	

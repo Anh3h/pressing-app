@@ -40,6 +40,13 @@ public class Item {
 		super();
 	}
 
+	public Item(String name, String description, Double cost, Category category) {
+		this.name = name;
+		this.description = description;
+		this.cost = cost;
+		this.category = category;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

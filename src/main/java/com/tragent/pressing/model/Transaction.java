@@ -41,9 +41,8 @@ public class Transaction implements Serializable {
 	private int quantity;
 	
 	@Column(nullable=false)
-	private String status;
-	
-	@Column(nullable=false, unique=true)
+	private Status status;
+
 	private String label;
 	
 	@Column(nullable=false)
@@ -60,7 +59,7 @@ public class Transaction implements Serializable {
 		super();
 	}
 
-	public Transaction(Customer customer, Item item, int quantity, String status, String label, Date dueDate, Date depositDate) {
+	public Transaction(Customer customer, Item item, int quantity, Status status, String label, Date dueDate, Date depositDate) {
 		super();
 		this.customer = customer;
 		this.item = item;
@@ -103,11 +102,11 @@ public class Transaction implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

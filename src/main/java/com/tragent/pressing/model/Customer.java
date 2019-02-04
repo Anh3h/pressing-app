@@ -40,6 +40,14 @@ public class Customer {
 		super();
 	}
 
+	public Customer(String firstName, String lastName, String telephone, String email, boolean isActive) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.telephone = telephone;
+		this.email = email;
+		this.isActive = isActive;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

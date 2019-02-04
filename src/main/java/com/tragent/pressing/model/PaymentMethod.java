@@ -34,6 +34,12 @@ public class PaymentMethod {
 		super();
 	}
 
+	public PaymentMethod(String name, String description, boolean isActive) {
+		this.name = name;
+		this.description = description;
+		this.isActive = isActive;
+	}
+
 	public Long getId() {
 		return this.id;
 	}
