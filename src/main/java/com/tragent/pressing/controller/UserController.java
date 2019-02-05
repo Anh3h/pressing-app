@@ -29,43 +29,47 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private RoleService roleService;
-	
+
 	/**
-	 * Get all uses or user by username.
+	 * Get all uses.
 	 * 
-	 * @param username, isActive
+	 * @param isActive
 	 * @return Collection of users or user with the given username
 	 */
 	@RequestMapping(method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Collection<CustomUser>> getUsers(@RequestParam(value = "username", required = false) String username,
-			@RequestParam(value = "active", required = false) String isActive){
-		
+	public ResponseEntity<Collection<CustomUser>> getUsers(@RequestParam(value = "active", required = false) String isActive){
 		Collection<CustomUser> users = new ArrayList<>();
-		if (username != null) {
-			CustomUser user = userService.findByUserName(username);
-			users.add(user);
-			
-		} else if (isActive != null) {
+		if (isActive != null) {
 			if (isActive.compareToIgnoreCase("true") == 0) {
-				Collection<CustomUser> activeUsers = userService.findByIsActive(true);
-				users.addAll(activeUsers);
-				
+				Collection<CustomUser> activedUsers = userService.findByIsActive(true);
+				users.addAll(activedUsers);
 			} else if (isActive.compareToIgnoreCase("false") == 0){
 				Collection<CustomUser> deActivatedUsers = userService.findByIsActive(false);
 				users.addAll(deActivatedUsers);
-				
 			}
-			
 		} else {
 			Collection<CustomUser> allUser = userService.findAll();
 			users.addAll(allUser);
 		}
-		
 		return new ResponseEntity<>(users, HttpStatus.OK);	
+	}
+
+	/**
+	 * Get user by username.
+	 *
+	 * @param username
+	 * @return User object or 404 if user is not found
+	 */
+	@RequestMapping(value="/{username}",
+			method=RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CustomUser> getUserById(@PathVariable("username") String username){
+		CustomUser user = this.userService.findByUserName(username);
+		if (user == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	/**
@@ -78,73 +82,47 @@ public class UserController {
 			method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CustomUser> getUserById(@PathVariable("id") Long userId){
-		
-		CustomUser user = userService.findById(userId);
+		CustomUser user = this.userService.findById(userId);
 		if (user == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	/**
 	 * Create new user.
 	 * 
-	 * @param user
+	 * @param userDTO
 	 * @return User object (created user object)
 	 */
 	@RequestMapping(method=RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomUser> createUser(@RequestBody UserDTO user){
-		int count = 0;
-		List<Role> roles = new ArrayList<>();
-		while(user.getRoleIds().size() > count){
-			roles.add(roleService.findById(user.getRoleIds().get(count++)));
-		}
-		CustomUser newUser = new CustomUser(user.getFirstName(),user.getLastName(),user.getUsername(),
-				user.getPassword(), user.isActive(), roles, user.getTelephone());
-		CustomUser createdUser = userService.create(newUser);
+	public ResponseEntity<CustomUser> createUser(@RequestBody UserDTO userDTO){
+		CustomUser createdUser = this.userService.create(userDTO);
 		if (createdUser == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
-		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+		return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
 	}
 	
 	/**
 	 * Update user's information.
 	 * 
-	 * @param user
+	 * @param userDTO
 	 * @return User object (updated user object)
 	 */
 	@RequestMapping(value="/{userId}",
 			method=RequestMethod.PUT,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomUser> updateUser(@RequestBody UserDTO user,
+	public ResponseEntity<CustomUser> updateUser(@RequestBody UserDTO userDTO,
 			@PathVariable("userId") Long userId){
-		if (user.getId().compareTo(userId) == 0) {
-			int count = 0;
-			List<Role> roles = new ArrayList<>();
-			while(user.getRoleIds().size() > count){
-				roles.add(roleService.findById(user.getRoleIds().get(count++)));
+		if (userDTO.getId().compareTo(userId) == 0) {
+			CustomUser updateUser = this.userService.update(userDTO);
+			if (updateUser != null) {
+				return new ResponseEntity<>(updateUser, HttpStatus.OK);
 			}
-			CustomUser updateUser = userService.findById(user.getId());
-
-			if (updateUser == null) {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-
-			updateUser.setFirstName(user.getFirstName());
-			updateUser.setLastName(user.getLastName());
-			updateUser.setPassword(user.getPassword());
-			updateUser.setTelephone(user.getTelephone());
-			updateUser.setActive(user.isActive());
-			updateUser.setRoles(roles);
-			updateUser = userService.update(updateUser);
-
-			return new ResponseEntity<>(updateUser, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
@@ -158,8 +136,7 @@ public class UserController {
 	@RequestMapping(value="/{id}",
 			method=RequestMethod.DELETE)
 	public ResponseEntity<CustomUser> deactivateUser(@PathVariable("userId") Long userId){
-		
-		userService.deactivate(userId);
+		this.userService.deactivate(userId);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }

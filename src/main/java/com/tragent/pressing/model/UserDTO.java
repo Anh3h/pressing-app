@@ -1,6 +1,7 @@
 package com.tragent.pressing.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDTO {
 	private Long id;
@@ -92,5 +93,9 @@ public class UserDTO {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
+
+	public CustomUser toUser() {
+		return new CustomUser(this.getFirstName(),this.getLastName(),this.getUsername(),
+				this.getPassword(), this.isActive(), null, this.getTelephone());
+	}
 }

@@ -1,8 +1,13 @@
 package com.tragent.pressing.service.implementation;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.tragent.pressing.model.Role;
+import com.tragent.pressing.model.UserDTO;
+import com.tragent.pressing.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +23,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -39,36 +47,37 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public CustomUser findByUserName(String username) {
-		
 		CustomUser user = userRepository.findByUsername(username);
 		return user;
 	}
 
 	@Override
 	public Collection<CustomUser> findByIsActive(boolean isActive) {
-		
 		Collection<CustomUser> users = userRepository.findByIsActive(isActive);
 		return users;
 	}
 
 	@Override
 	@Secured("ROLE_ADMINISTRATION")
-	public CustomUser create(CustomUser user) {
-		
-		if (findByUserName(user.getUsername()) != null) {
-			return null;
+	public CustomUser create(UserDTO userDTO) {
+		if (findByUserName(userDTO.getUsername()) == null) {
+			CustomUser user = this.convertUserDTOtoCustomUser(userDTO);
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+			return userRepository.save(user);
 		}
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		CustomUser savedUser = userRepository.save(user);
-		return savedUser;
+		return null;
 	}
 
 	@Override
-	public CustomUser update(CustomUser user) {
-		
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		CustomUser savedUser = userRepository.save(user);
-		return savedUser;
+	public CustomUser update(UserDTO userDTO) {
+		CustomUser user = this.userRepository.findOne(userDTO.getId());
+		if (user != null) {
+			userDTO.setPassword(user.getPassword());
+			userDTO.setActive(true);
+			user = this.convertUserDTOtoCustomUser(userDTO);
+			return userRepository.save(user);
+		}
+		return null;
 	}
 
 	@Override
@@ -79,4 +88,13 @@ public class UserServiceImpl implements UserService {
 		user.setActive(false);
 	}
 
+	private CustomUser convertUserDTOtoCustomUser(UserDTO userDTO) {
+		CustomUser user = userDTO.toUser();
+		List<Role> roles = userDTO.getRoleIds()
+				.stream()
+				.map( roleId ->  this.roleRepository.findOne(roleId))
+				.collect(Collectors.toList());
+		user.setRoles(roles);
+		return user;
+	}
 }

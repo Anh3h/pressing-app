@@ -3,6 +3,7 @@ package com.tragent.pressing.service;
 import java.util.Collection;
 
 import com.tragent.pressing.model.CustomUser;
+import com.tragent.pressing.model.UserDTO;
 
 /**
  * Service that provides CRUD operations for users
@@ -14,7 +15,7 @@ public interface UserService {
 	 * 
 	 * @return Collection of all users 
 	 */
-	public Collection<CustomUser> findAll();
+	Collection<CustomUser> findAll();
 	
 	/**
 	 * Find an user by Id.
@@ -22,7 +23,7 @@ public interface UserService {
 	 * @param id
 	 * @return CustomUser object if found, else return null
 	 */
-	public CustomUser findById(Long id);
+	CustomUser findById(Long id);
 	
 	/**
 	 * Find an user by username.
@@ -30,7 +31,7 @@ public interface UserService {
 	 * @param username
 	 * @return CustomUser object if found, else return null
 	 */
-	public CustomUser findByUserName(String username);
+	CustomUser findByUserName(String username);
 	
 	/**
 	 * Find users with active accounts.
@@ -38,7 +39,7 @@ public interface UserService {
 	 * @param isActive
 	 * @return Collection of users
 	 */
-	public Collection<CustomUser> findByIsActive(boolean isActive);
+	Collection<CustomUser> findByIsActive(boolean isActive);
 	
 	/**
 	 * Create new user.
@@ -46,7 +47,7 @@ public interface UserService {
 	 * @param user
 	 * @return CustomUser object (Created user object)
 	 */
-	public CustomUser create(CustomUser user);
+	CustomUser create(UserDTO user);
 	
 	/**
 	 * Update an existing user's information.
@@ -54,13 +55,13 @@ public interface UserService {
 	 * @param user
 	 * @return CustomUser object (Updated user object)
 	 */
-	public CustomUser update(CustomUser user);
+	CustomUser update(UserDTO user);
 	
 	/**
 	 * Deactivate a user's account.
 	 * 
 	 * @param id
 	 */
-	public void deactivate(Long id);
+	void deactivate(Long id);
 	
 }
