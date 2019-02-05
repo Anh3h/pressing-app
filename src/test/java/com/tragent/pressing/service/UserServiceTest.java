@@ -2,13 +2,17 @@ package com.tragent.pressing.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.any;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.tragent.pressing.generator.RoleGenerator;
 import com.tragent.pressing.generator.UserGenerator;
 import com.tragent.pressing.model.CustomUser;
+import com.tragent.pressing.model.UserDTO;
+import com.tragent.pressing.repository.RoleRepository;
 import com.tragent.pressing.repository.UserRepository;
 import com.tragent.pressing.service.implementation.UserServiceImpl;
 import org.junit.Test;
@@ -41,25 +45,34 @@ public class UserServiceTest {
 	@MockBean
 	private PasswordEncoder passwordEncoder;
 
+	@MockBean
+	private RoleRepository roleRepository;
+
 	@Test
 	public void createUser_shouldReturnNewlyCreatedUser() {
-		CustomUser user = UserGenerator.generateUser();
-		given( this.userRepository.save(user) ).willReturn(user);
-		given(  this.userRepository.findByUsername(user.getUsername()) ).willReturn(null);
+		UserDTO userDTO = UserGenerator.generateUserDTO();
+		CustomUser user = userDTO.toUser();
+		user.addRole(RoleGenerator.generateRole());
+		given( this.userRepository.save(any(CustomUser.class)) ).willReturn(user);
+		given( this.userRepository.findByUsername(user.getUsername()) ).willReturn(null);
 		given( this.passwordEncoder.encode(user.getPassword()) ).willReturn(user.getPassword());
+		given( this.roleRepository.findOne(any(Long.class)) ).willReturn(user.getRoles().get(0));
 
-		CustomUser newUser = this.userService.create(user);
+		CustomUser newUser = this.userService.create(userDTO);
 
 		assertThat(newUser).isEqualTo(user);
 	}
 
 	@Test
 	public void updateUser_shouldReturAnUpdateUser() {
-		CustomUser user = UserGenerator.generateUser();
-		given( this.userRepository.save(user) ).willReturn(user);
-		given( this.passwordEncoder.encode(user.getPassword()) ).willReturn(user.getPassword());
+		UserDTO userDTO = UserGenerator.generateUserDTO();
+		CustomUser user = userDTO.toUser();
+		user.addRole(RoleGenerator.generateRole());
+		given( this.userRepository.save(any(CustomUser.class)) ).willReturn(user);
+		given( this.userRepository.findOne(any(Long.class)) ).willReturn(user);
+		given( this.roleRepository.findOne(any(Long.class)) ).willReturn(user.getRoles().get(0));
 
-		CustomUser updatedUser = this.userService.update(user);
+		CustomUser updatedUser = this.userService.update(userDTO);
 
 		assertThat(updatedUser).isEqualTo(user);
 	}

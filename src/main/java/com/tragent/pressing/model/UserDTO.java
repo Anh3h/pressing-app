@@ -30,6 +30,19 @@ public class UserDTO {
 		
 	}
 
+	public UserDTO(Long id, String firstName, String lastName, String username, String password, boolean isActive,
+			Long roleId, String telephone) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.isActive = isActive;
+		this.roleIds = new ArrayList<>();
+		this.roleIds.add(roleId);
+		this.telephone = telephone;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

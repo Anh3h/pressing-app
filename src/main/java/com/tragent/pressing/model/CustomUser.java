@@ -1,5 +1,6 @@
 package com.tragent.pressing.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -113,6 +114,13 @@ public class CustomUser {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public void addRole(Role role) {
+		if (this.roles == null) {
+			this.roles = new ArrayList<>();
+		}
+		this.roles.add(role);
 	}
 
 	public String getTelephone() {
