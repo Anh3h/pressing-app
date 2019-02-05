@@ -59,9 +59,9 @@ public class UserControllerTest {
 		given(this.userService.findByUserName(user.getUsername())).willReturn(user);
 
 		this.mockMvc.perform(MockMvcRequestBuilders
-				.get("/api/v1/users?username=" + user.getUsername()))
+				.get("/api/v1/users/username/" + user.getUsername()))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$[0].firstName", is(user.getFirstName())));
+				.andExpect(jsonPath("firstName", is(user.getFirstName())));
 	}
 
 	@Test
@@ -85,53 +85,45 @@ public class UserControllerTest {
 
 	@Test
 	public void whenAUserCreateRequestIsSent_ACreatedUserIsReturned() throws Exception {
-//		CustomUser user = UserGenerator.generateUser();
-//		UserDTO userDTO = new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getUsername(),
-//				user.isActive(), user.getRoles().get(0).getId(), user.getTelephone());
-//
-//		given(this.userService.create(any(CustomUser.class))).willReturn(user);
-//		given(this.roleService.findById(user.getRoles().get(0).getId())).willReturn(user.getRoles().get(0));
-//
-//		this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/users")
-//				.content(Generator.toJSON(userDTO))
-//				.accept(MediaType.APPLICATION_JSON_VALUE)
-//				.contentType(MediaType.APPLICATION_JSON_VALUE))
-//			.andExpect(status().isCreated())
-//			.andExpect(jsonPath("firstName", is(user.getFirstName())));
+		UserDTO userDTO = UserGenerator.generateUserDTO();
+		CustomUser user = userDTO.toUser();
+
+		given(this.userService.create(any(UserDTO.class))).willReturn(user);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/users")
+				.content(Generator.toJSON(userDTO))
+				.accept(MediaType.APPLICATION_JSON_VALUE)
+				.contentType(MediaType.APPLICATION_JSON_VALUE))
+			.andExpect(status().isCreated())
+			.andExpect(jsonPath("firstName", is(user.getFirstName())));
 	}
 
 	@Test
 	public void whenAUserUpdateRequestIsSent_AnUpdatedUserIsReturned() throws Exception {
-//		CustomUser user = UserGenerator.generateUser();
-//		UserDTO userDTO = new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getUsername(),
-//				user.isActive(), user.getRoles().get(0).getId(), user.getTelephone());
-//
-//		given(this.userService.update(any(CustomUser.class))).willReturn(user);
-//		given(this.userService.findById(user.getId())).willReturn(user);
-//		given(this.roleService.findById(user.getRoles().get(0).getId())).willReturn(user.getRoles().get(0));
-//
-//		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/users/" + user.getId())
-//				.content(Generator.toJSON(userDTO))
-//				.contentType(MediaType.APPLICATION_JSON_VALUE)
-//				.accept(MediaType.APPLICATION_JSON_VALUE))
-//			.andExpect(status().isOk())
-//			.andExpect(jsonPath("firstName", is(user.getFirstName())));
-	}
+		UserDTO userDTO = UserGenerator.generateUserDTO();
+		CustomUser user = userDTO.toUser();
 
-	@Test
-	public void WhenANonExistingUserIsUpdated_HttpStatus404IsReturned() throws Exception {
-		CustomUser user = UserGenerator.generateUser();
-		UserDTO userDTO = new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getUsername(),
-				user.isActive(), user.getRoles().get(0).getId(), user.getTelephone());
+		given(this.userService.update(any(UserDTO.class))).willReturn(user);
 
-		given(this.userService.findById(any(Long.class))).willReturn(null);
-		given(this.roleService.findById(any(Long.class))).willReturn(null);
-
-		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/users/" + user.getId())
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/users/" + userDTO.getId())
 				.content(Generator.toJSON(userDTO))
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.accept(MediaType.APPLICATION_JSON_VALUE))
-				.andExpect(status().isNotFound());
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("firstName", is(user.getFirstName())));
+	}
+
+	@Test
+	public void WhenANonExistingUserIsUpdated_HttpStatus400IsReturned() throws Exception {
+		UserDTO userDTO = UserGenerator.generateUserDTO();
+
+		given(this.userService.update(any(UserDTO.class))).willReturn(null);
+
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/users/" + userDTO.getId())
+				.content(Generator.toJSON(userDTO))
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(status().isBadRequest());
 	}
 
 	@Test

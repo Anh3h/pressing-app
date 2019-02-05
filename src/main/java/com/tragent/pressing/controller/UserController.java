@@ -61,7 +61,7 @@ public class UserController {
 	 * @param username
 	 * @return User object or 404 if user is not found
 	 */
-	@RequestMapping(value="/{username}",
+	@RequestMapping(value="/username/{username}",
 			method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CustomUser> getUserById(@PathVariable("username") String username){

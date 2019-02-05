@@ -108,7 +108,7 @@ public class UserDTO {
 	}
 
 	public CustomUser toUser() {
-		return new CustomUser(this.getFirstName(),this.getLastName(),this.getUsername(),
+		return new CustomUser(this.id, this.getFirstName(),this.getLastName(),this.getUsername(),
 				this.getPassword(), this.isActive(), null, this.getTelephone());
 	}
 }
