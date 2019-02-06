@@ -19,37 +19,35 @@ public class PermissionServiceImpl implements PermissionService {
 
 	@Override
 	public Collection<Permission> findAll() {
-		
-		Collection<Permission> permissions = permissionRepository.findAll();
+		Collection<Permission> permissions = this.permissionRepository.findAll();
 		return permissions;
 	}
 
 	@Override
 	public Permission findById(Long id) {
-		
-		Permission permission = permissionRepository.findOne(id);
+		Permission permission = this.permissionRepository.findOne(id);
 		return permission;
 	}
 
 	@Override
 	public Permission findByName(String name) {
-		
-		Permission permission = permissionRepository.findByName(name);
+		Permission permission = this.permissionRepository.findByName(name);
 		return permission;
 	}
 
 	@Override
 	public Permission create(Permission permission) {
-		
-		Permission savedPermission = permissionRepository.save(permission);
+		Permission savedPermission = this.permissionRepository.save(permission);
 		return savedPermission;
 	}
 
 	@Override
 	public Permission update(Permission permission) {
-		
-		Permission updatedPermission = permissionRepository.save(permission);
-		return updatedPermission;
+		if(this.permissionRepository.findOne(permission.getId()) != null) {
+			Permission updatedPermission = this.permissionRepository.save(permission);
+			return updatedPermission;
+		}
+		return null;
 	}
 
 }

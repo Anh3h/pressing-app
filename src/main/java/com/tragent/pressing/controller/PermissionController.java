@@ -28,27 +28,35 @@ public class PermissionController {
 		
 	/**
 	 * Get all permissions or permission by name.
-	 * 
-	 * @param permissionName
+	 *
 	 * @return Collection of permissions or permission with the given name
 	 */
 	@RequestMapping(method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Collection<Permission>> getPermissions(@RequestParam(value = "permissionName", required = false) String permissionName) {
-		
+	public ResponseEntity<Collection<Permission>> getPermissions() {
 		Collection<Permission> permissions = new ArrayList<>();
-		if (permissionName != null) {
-			Permission permission = permissionService.findByName(permissionName);
-			permissions.add(permission);
-			
-		} else {
-			Collection<Permission> allPermission = permissionService.findAll();
-			permissions.addAll(allPermission);
-		}
-		
+		Collection<Permission> allPermission = permissionService.findAll();
+		permissions.addAll(allPermission);
 		return new ResponseEntity<>(permissions, HttpStatus.OK);	
 	}
-	
+
+	/**
+	 * Get permission by name.
+	 *
+	 * @param name
+	 * @return Permission object or 404 if permission is not found
+	 */
+	@RequestMapping(value="/name/{name}",
+			method=RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Permission> getPermissionByName(@PathVariable("name") String name){
+		Permission permission = permissionService.findByName(name);
+		if (permission == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(permission, HttpStatus.OK);
+	}
+
 	/**
 	 * Get permission by id.
 	 * 
@@ -59,12 +67,10 @@ public class PermissionController {
 			method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Permission> getPermissionById(@PathVariable("permissionId") Long permissionId){
-		
 		Permission permission = permissionService.findById(permissionId);
 		if (permission == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
 		return new ResponseEntity<>(permission, HttpStatus.OK);
 	}
 	
@@ -78,12 +84,10 @@ public class PermissionController {
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Permission> createPermission(@RequestBody Permission permission){
-		
 		Permission newPermission = permissionService.create(permission);
 		if (newPermission == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
 		return new ResponseEntity<>(newPermission, HttpStatus.CREATED);	
 	}
 	
@@ -97,11 +101,13 @@ public class PermissionController {
 			method=RequestMethod.PUT,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Permission> updatePermission(@RequestBody Permission permission){
-
-		if (this.permissionService.findById(permission.getId()) != null) {
-			Permission updatedPermission = permissionService.update(permission);
-			return new ResponseEntity<>(permission, HttpStatus.OK);
+	public ResponseEntity<Permission> updatePermission(@RequestBody Permission permission,
+			@PathVariable("permissionId") Long permissionId){
+		if (permission.getId().compareTo(permissionId) == 0) {
+			Permission updatedPermission = this.permissionService.update(permission);
+			if (updatedPermission != null) {
+				return new ResponseEntity<>(updatedPermission, HttpStatus.OK);
+			}
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}

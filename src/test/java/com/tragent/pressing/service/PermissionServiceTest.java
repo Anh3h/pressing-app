@@ -54,6 +54,7 @@ public class PermissionServiceTest {
 	public void updatePermission_shouldReturnUpdatedPermission() {
 		Permission permission = PermissionGenerator.generatePermission();
 		given(this.permissionRepository.save(any(Permission.class))).willReturn(permission);
+		given(this.permissionRepository.findOne(any(Long.class))).willReturn(permission);
 
 		Permission updatedPermission = this.permissionService.update(permission);
 

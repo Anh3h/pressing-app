@@ -49,7 +49,6 @@ public class PermissionControllerTest {
 	@Test
 	public void whenAnUpdateRequestIsMade_thenAnUpdatedPermissionIsReturned() throws Exception {
 		Permission permission = PermissionGenerator.generatePermission();
-		given(this.permissionService.findById(permission.getId())).willReturn(permission);
 		given(this.permissionService.update(any(Permission.class))).willReturn(permission);
 
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/permissions/" + permission.getId())
@@ -61,11 +60,10 @@ public class PermissionControllerTest {
 	}
 
 	@Test
-	public void whenAnUpdateRequestIsMadeOnANonExistingPermission_thenABadRequestErrorIsReturned() throws Exception {
+	public void whenAnUpdateRequestIsMadeWithMisMatchPathAndObjectId_thenABadRequestErrorIsReturned() throws Exception {
 		Permission permission = PermissionGenerator.generatePermission();
-		given(this.permissionService.findById(permission.getId())).willReturn(null);
 
-		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/permissions/" + permission.getId())
+		this.mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/permissions/" + 1L)
 				.content(Generator.toJSON(permission))
 				.contentType(MediaType.APPLICATION_JSON_VALUE)
 				.accept(MediaType.APPLICATION_JSON_VALUE))
