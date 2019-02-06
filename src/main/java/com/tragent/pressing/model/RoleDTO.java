@@ -59,5 +59,9 @@ public class RoleDTO {
 	public void setPermissionIds(ArrayList<Long> permissionIds) {
 		this.permissionIds = permissionIds;
 	}
+
+	public Role toRole() {
+		return new Role(this.id, this.name, this.description);
+	}
 	
 }

@@ -3,6 +3,7 @@ package com.tragent.pressing.service;
 import java.util.Collection;
 
 import com.tragent.pressing.model.Role;
+import com.tragent.pressing.model.RoleDTO;
 
 /** 
  * Service that provides CRUD operations for role 
@@ -23,7 +24,7 @@ public interface RoleService {
 	 * @param roleId
 	 * @return the role object if found, else return null
 	 */
-	public Role findById(Long id);
+	public Role findById(Long roleId);
 	
 	/**
 	 * Find a role by name.
@@ -36,17 +37,17 @@ public interface RoleService {
 	/**
 	 * Create a new role.
 	 * 
-	 * @param role
+	 * @param roleDTO
 	 * @return Role object (created role object)
 	 */
-	public Role create(Role role);
+	public Role create(RoleDTO roleDTO);
 	
 	/**
 	 * Update an existing role.
 	 * 
-	 * @param role
+	 * @param roleDTO
 	 * @return Role object (updated role object)
 	 */
-	public Role update(Role role);
+	public Role update(RoleDTO roleDTO);
 	
 }

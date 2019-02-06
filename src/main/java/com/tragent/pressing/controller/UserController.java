@@ -64,7 +64,7 @@ public class UserController {
 	@RequestMapping(value="/username/{username}",
 			method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomUser> getUserById(@PathVariable("username") String username){
+	public ResponseEntity<CustomUser> getUserByUsername(@PathVariable("username") String username){
 		CustomUser user = this.userService.findByUserName(username);
 		if (user == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

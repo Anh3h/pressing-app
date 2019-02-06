@@ -42,6 +42,12 @@ public class Role implements GrantedAuthority {
 		super();
 	}
 
+	public Role(Long id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
+
 	public Role(String name, String description, List<Permission> permissions) {
 		super();
 		this.name = name;

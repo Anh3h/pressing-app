@@ -35,25 +35,32 @@ public class RoleController {
 		
 	/**
 	 * Get all roles or role by name.
-	 * 
-	 * @param roleName
+	 *
 	 * @return Collection of roles in the system or role with the given name
 	 */
 	@RequestMapping(method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Collection<Role>> getRoles(@RequestParam(value = "roleName", required = false) String roleName) {
-		
+	public ResponseEntity<Collection<Role>> getRoles() {
 		Collection<Role> roles = new ArrayList<>();
-		if (roleName != null) {
-			Role role = roleService.findByName(roleName);
-			roles.add(role);
-			
-		} else {
-			Collection<Role> allRole = roleService.findAll();
-			roles.addAll(allRole);
-		}
-		
+		roles.addAll(this.roleService.findAll());
 		return new ResponseEntity<>(roles, HttpStatus.OK);
+	}
+
+	/**
+	 * Get role by name.
+	 *
+	 * @param name
+	 * @return Role object or 404 if role is not found
+	 */
+	@RequestMapping(value="/name/{name}",
+			method=RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Role> getRoleByName(@PathVariable("name") String name){
+		Role role = this.roleService.findByName(name);
+		if (role == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(role, HttpStatus.OK);
 	}
 	
 	/**
@@ -66,12 +73,10 @@ public class RoleController {
 			method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Role> getRoleById(@PathVariable("roleId") Long roleId){
-		
-		Role role = roleService.findById(roleId);
+		Role role = this.roleService.findById(roleId);
 		if (role == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
 		return new ResponseEntity<>(role, HttpStatus.OK);
 	}
 	
@@ -85,12 +90,10 @@ public class RoleController {
 			method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<Permission>> getRolePermissions(@PathVariable("roleId") Long roleId){
-		
-		Collection<Permission> permissions = roleService.findById(roleId).getPermission();
+		Collection<Permission> permissions = this.roleService.findById(roleId).getPermission();
 		if (permissions == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		
 		return new ResponseEntity<>(permissions, HttpStatus.OK);
 	}
 	
@@ -103,49 +106,33 @@ public class RoleController {
 	@RequestMapping(method=RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Role> createRole(@RequestBody RoleDTO role){
-		int count=0;
-		List<Permission> permissions = new ArrayList<>();
-		while(role.getPermissionIds() != null && role.getPermissionIds().size() > count){
-			permissions.add(permissionService.findById(role.getPermissionIds().get(count++)));
-		}
-		Role newRole = new Role(role.getName(), role.getDescription(), permissions);
-		newRole = roleService.create(newRole);
+	public ResponseEntity<Role> createRole(@RequestBody RoleDTO roleDTO){
+		Role newRole = roleService.create(roleDTO);
 		if (newRole == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		
 		return new ResponseEntity<>(newRole, HttpStatus.CREATED);	
 	}
 	
 	/**
 	 * Update role record.
 	 * 
-	 * @param role
+	 * @param roleDTO
 	 * @return Role object (updated role object).
 	 */
 	@RequestMapping(value="/{roleId}",
 			method=RequestMethod.PUT,
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Role> updateRole(@RequestBody RoleDTO role){
-		int count=0;
-		List<Permission> permissions = new ArrayList<>();
-		while(role.getPermissionIds() != null && role.getPermissionIds().size() > count){
-			permissions.add(permissionService.findById(role.getPermissionIds().get(count++)));
+	public ResponseEntity<Role> updateRole(@RequestBody RoleDTO roleDTO,
+			@PathVariable("roleId") Long roleId){
+		if( roleDTO.getId().compareTo(roleId) == 0){
+			Role updatedRole = roleService.update(roleDTO);
+			if (updatedRole != null) {
+				return new ResponseEntity<>(updatedRole, HttpStatus.OK);
+			}
 		}
-
-		Role newRole = roleService.findById(role.getId());
-		if (newRole == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-
-		newRole.setDescription(role.getDescription());
-		newRole.setPermission(permissions);
-		newRole = roleService.create(newRole);
-		newRole = roleService.update(newRole);
-		
-		return new ResponseEntity<>(newRole, HttpStatus.OK);	
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 }
