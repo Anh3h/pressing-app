@@ -53,7 +53,7 @@ public class UserControllerTest {
 	}
 
 	@Test
-	public void whenAUserIsRequestedByUsername_ASingletonOfUserIsReturned() throws Exception {
+	public void whenAUserIsRequestedByUsername_AUserIsReturned() throws Exception {
 		CustomUser user = UserGenerator.generateUser();
 
 		given(this.userService.findByUserName(user.getUsername())).willReturn(user);
