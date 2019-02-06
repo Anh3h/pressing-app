@@ -13,11 +13,13 @@ public class RoleDTO {
 		super();
 	}
 
-	public RoleDTO(String name, String description, List<Long> permissionIds) {
+	public RoleDTO(Long id, String name, String description, Long permissionId) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.permissionIds = permissionIds;
+		this.permissionIds = new ArrayList<>();
+		this.permissionIds.add(permissionId);
 	}
 
 	public RoleDTO(Long id, String name, String description, List<Long> permissionIds) {

@@ -2,13 +2,17 @@ package com.tragent.pressing.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.any;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.tragent.pressing.generator.PermissionGenerator;
 import com.tragent.pressing.generator.RoleGenerator;
 import com.tragent.pressing.model.Role;
+import com.tragent.pressing.model.RoleDTO;
+import com.tragent.pressing.repository.PermissionRepository;
 import com.tragent.pressing.repository.RoleRepository;
 import com.tragent.pressing.service.implementation.RoleServiceImpl;
 import org.junit.Test;
@@ -34,24 +38,37 @@ public class RoleServiceTest {
 	private RoleService roleService;
 
 	@MockBean
+	private PermissionRepository permissionRepository;
+
+	@MockBean
 	private RoleRepository roleRepository;
 
 	@Test
 	public void createRole_shouldReturnNewlyCreatedRole() {
-		Role role = RoleGenerator.generateRole();
-		given(this.roleRepository.save(role)).willReturn(role);
+		RoleDTO roleDTO = RoleGenerator.generateRoleDTO();
+		Role role = roleDTO.toRole();
+		role.addPermission(PermissionGenerator.generatePermission());
+		given(this.roleRepository.save(any(Role.class))).willReturn(role);
+		given(this.roleRepository.findByName(any(String.class))).willReturn(null);
+		given(this.permissionRepository.findOne(any(Long.class)))
+				.willReturn(role.getPermission().get(0));
 
-		Role newRole = this.roleService.create(role);
+		Role newRole = this.roleService.create(roleDTO);
 
 		assertThat(newRole).isEqualTo(role);
 	}
 
 	@Test
 	public void updateRole_shouldReturnUpdatedRole() {
-		Role role = RoleGenerator.generateRole();
-		given(this.roleRepository.save(role)).willReturn(role);
+		RoleDTO roleDTO = RoleGenerator.generateRoleDTO();
+		Role role = roleDTO.toRole();
+		role.addPermission(PermissionGenerator.generatePermission());
+		given(this.roleRepository.save(any(Role.class))).willReturn(role);
+		given(this.roleRepository.findByName(any(String.class))).willReturn(role);
+		given(this.permissionRepository.findOne(any(Long.class)))
+				.willReturn(role.getPermission().get(0));
 
-		Role updatedRole = this.roleService.update(role);
+		Role updatedRole = this.roleService.update(roleDTO);
 
 		assertThat(updatedRole).isEqualTo(role);
 	}

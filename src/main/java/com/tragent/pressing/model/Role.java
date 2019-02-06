@@ -1,5 +1,6 @@
 package com.tragent.pressing.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -85,6 +86,13 @@ public class Role implements GrantedAuthority {
 	
 	public void setPermission(List<Permission> permission) {
 		this.permissions = permission;
+	}
+
+	public void addPermission(Permission permission) {
+		if(this.permissions == null) {
+			this.permissions = new ArrayList<>();
+		}
+		this.permissions.add(permission);
 	}
 
 	@Override

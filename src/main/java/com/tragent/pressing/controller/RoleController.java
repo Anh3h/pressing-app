@@ -29,10 +29,7 @@ public class RoleController {
 
 	@Autowired
 	private RoleService roleService;
-	
-	@Autowired
-	private PermissionService permissionService;
-		
+
 	/**
 	 * Get all roles or role by name.
 	 *
@@ -100,7 +97,7 @@ public class RoleController {
 	/**
 	 * Create new role.
 	 * 
-	 * @param role
+	 * @param roleDTO
 	 * @return Role Object (created role object)
 	 */
 	@RequestMapping(method=RequestMethod.POST,
